@@ -1,0 +1,45 @@
+{
+    "intents": [
+        {
+            "name": "most common visitor type",
+            "description": "The most common visitor type and their count."
+        },
+        {
+            "name": "most visitors in a minute",
+            "description": "The time with the highest number of visitors."
+        },
+        {
+            "name": "visitor count with single attribute",
+            "description": "Count of visitors with a specific attribute."
+        },
+        {
+            "name": "visitor count during peak time",
+            "description": "Count of visitors during the peak time."
+        },
+        {
+            "name": "peak time visitor count",
+            "description": "Visitor count during peak times."
+        },
+        {
+            "name": "total number of visitors",
+            "description": "Total number of visitors in the dataset."
+        },
+        {
+            "name": "average visitors per minute",
+            "description": "Average number of visitors per minute."
+        },
+        {
+            "name": "visitor count by hour",
+            "description": "Count of visitors aggregated by hour."
+        },
+        {
+            "name": "visitor count by day",
+            "description": "Count of visitors aggregated by day."
+        },
+        {
+            "name": "peak hour of the day",
+            "description": "The hour of the day with the highest number of visitors."
+        }
+        
+    ]
+}
