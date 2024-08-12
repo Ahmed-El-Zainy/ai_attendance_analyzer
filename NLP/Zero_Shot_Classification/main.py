@@ -28,9 +28,9 @@ def main():
 
     # Load and process data
     data_loader = DataLoader(
-        file_path="/content/Tasks_infotraff/NLP/Intern NLP Dataset.xlsx"
+        file_path="/content/Tasks_infotraff/NLP/Data/Intern NLP Dataset.xlsx"
     )
-    query_processor = QueryProcessor("/content/Tasks_infotraff/NLP/intents.json")
+    query_processor = QueryProcessor("/content/Tasks_infotraff/NLP/Data/intents.json")
 
     # Initialize the language model
     llm = LLM()
@@ -40,6 +40,9 @@ def main():
 
     # Example queries
     queries = [
+        "Who is my most common visitor ?",
+        "What time did I get most visits ?",
+        "How many females visited me ?",
         "How many females visited me in my peak time?",
         "How many males visited me in my peak time?",
         "How many children visited me in my peak time?",
