@@ -114,4 +114,14 @@ for query in queries:
     print(response)
 ```
 
-This README should now give a clear understanding of the project structure and how to use the application.
+## Example Output
+
+The application processes the queries and provides the following output:
+
+- The most common visitor is Female.
+- Sorry, I couldn't identify the specific attribute.
+- The number of visitors wearing a 'hijab' is 32.
+- The number of 'female' visitors is 52.
+- The peak visit time is at 15:12:00 on 2024-07-17, with a total of 5 visitors.
+- During the peak time, the number of 'Male' visitors is 0.
+- During the peak time, the number of 'Child' visitors is 0.
