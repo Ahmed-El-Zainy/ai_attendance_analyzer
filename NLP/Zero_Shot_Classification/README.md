@@ -1,47 +1,81 @@
 # Query Processing Application
 
-This application is designed to process queries on a dataset using a query processor and a language model. It's built with Python and uses the transformers library for text generation and query processing.
+This Python application processes queries on a dataset using a custom query processor and a language model. The project is designed to handle various natural language queries about visitor data and provides insights based on the dataset.
+
+## Project Structure
+
+- **`main.py`**: The entry point of the application, where the data is loaded, the query processor is initialized, and example queries are run.
+- **`data_loader.py`**: Handles loading and processing of the dataset.
+- **`query_processor.py`**: Manages intent recognition and query processing.
+- **`llm.py`**: Wraps the language model used for understanding and processing queries.
+- **`main_application.py`**: Integrates the data loader, query processor, and language model to handle queries end-to-end.
 
 ## Prerequisites
 
-- Python
+- Python 3.x
 - Pip
 
 ## Installation
 
-1. Clone the repository
-git clone
-2. Navigate to the project directory
-cd NLP
-3. Install the required dependencies
-pip install -r requirements.txt
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository_url>
+   ```
+
+2. **Navigate to the project directory:**
+
+   ```bash
+   cd NLP
+   ```
+
+3. **Install the required dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-1. Load and process the data:
+1. **Load and process the data:**
 
-- `data_loader = DataLoader(file_path='/path/to/dataset')`
-- Initializes the DataLoader with the specified dataset file path.
+   ```python
+   data_loader = DataLoader(file_path='/path/to/dataset')
+   ```
 
-2. Initialize the query processor:
+   - Initializes the `DataLoader` with the specified dataset file path.
 
-- `query_processor = QueryProcessor('/path/to/intents.json')`
-- Sets up the QueryProcessor with the path to the intents JSON file.
+2. **Initialize the query processor:**
 
-3. Initialize the LLM:
+   ```python
+   query_processor = QueryProcessor('/path/to/intents.json')
+   ```
 
-- `llm = LLM()`
-- Prepares the language model for processing queries.
+   - Sets up the `QueryProcessor` with the path to the intents JSON file.
 
-4. Instantiate the main application:
+3. **Initialize the language model (LLM):**
 
-- `app = MainApplication(data_loader, query_processor, llm)`
-- Sets up the main application with the data loader, query processor, and language model.
+   ```python
+   llm = LLM()
+   ```
 
-5. Run queries:
+   - Prepares the language model for processing queries.
 
-- `response = app.run_query(query)`
-- Processes a query and returns the result.
+4. **Instantiate the main application:**
+
+   ```python
+   app = MainApplication(data_loader, query_processor, llm)
+   ```
+
+   - Sets up the main application with the data loader, query processor, and language model.
+
+5. **Run queries:**
+
+   ```python
+   response = app.run_query(query)
+   ```
+
+   - Processes a query and returns the result.
 
 ## Example
 
@@ -57,12 +91,15 @@ app = MainApplication(data_loader, query_processor, llm)
 
 # Example queries
 queries = [
- "How many Famele visited me in my peak time ?",
- "How many Male visited me in my peak time ?",
- "How many Childern visited me in my peak time ?"
+ "How many female visited me in my peak time?",
+ "How many male visited me in my peak time?",
+ "How many children visited me in my peak time?"
 ]
 
 # Process and print the responses
 for query in queries:
- response = app.run_query(query)
- print(response)
+    response = app.run_query(query)
+    print(response)
+```
+
+This README should now give a clear understanding of the project structure and how to use the application.
