@@ -80,21 +80,33 @@ This Python application processes queries on a dataset using a custom query proc
 ## Example
 
 ```python
-# Load and process data
-data_loader = DataLoader(file_path='/content/Tasks_infotraff/NLP/Intern NLP Dataset.xlsx')
-query_processor = QueryProcessor('/content/Tasks_infotraff/NLP/intents.json')
 
-llm = LLM()
+    # Load and process data
+    data_loader = DataLoader(
+        file_path="/content/Tasks_infotraff/NLP/Data/Intern NLP Dataset.xlsx"
+    )
+    query_processor = QueryProcessor("/content/Tasks_infotraff/NLP/Data/intents.json")
 
-# Instantiate the main application
-app = MainApplication(data_loader, query_processor, llm)
+    # Initialize the language model
+    llm = LLM()
 
-# Example queries
-queries = [
- "How many female visited me in my peak time?",
- "How many male visited me in my peak time?",
- "How many children visited me in my peak time?"
-]
+    # Instantiate the main application
+    app = MainApplication(data_loader, query_processor, llm)
+
+    # Example queries
+    queries = [
+        "Who is my most common visitor ?",
+        "What time did I get most visits ?",
+        "How many females visited me ?",
+        "How many females visited me in my peak time?",
+        "How many males visited me in my peak time?",
+        "How many children visited me in my peak time?",
+    ]
+
+    # Process and print the responses
+    for query in queries:
+        response = app.run_query(query)
+        print(response)
 
 # Process and print the responses
 for query in queries:
