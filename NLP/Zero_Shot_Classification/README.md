@@ -5,9 +5,9 @@ This Python application processes queries on a dataset using a custom query proc
 ## Project Structure
 
 - **`main.py`**: The entry point of the application, where the data is loaded, the query processor is initialized, and example queries are run.
-- **`data_loader.py`**: Handles loading and processing of the dataset.
+- **`utils.py`**: Handles loading and processing of the dataset.
 - **`query_processor.py`**: Manages intent recognition and query processing.
-- **`llm.py`**: Wraps the language model used for understanding and processing queries.
+- **`pipeline`**: Wraps the language model used for understanding and processing queries.
 - **`main_application.py`**: Integrates the data loader, query processor, and language model to handle queries end-to-end.
 
 ## Prerequisites
@@ -20,13 +20,13 @@ This Python application processes queries on a dataset using a custom query proc
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/A7medM0sta/Tasks_infotraff.git
    ```
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd NLP
+   cd NLP/Zero_Shot_Classification
    ```
 
 3. **Install the required dependencies:**

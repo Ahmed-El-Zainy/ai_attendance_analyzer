@@ -12,14 +12,20 @@ a set of example queries to demonstrate its functionality.
 4. MainApplication: The central application that integrates all components and manages
    the query processing workflow.
 """
-
 from data_loader import DataLoader
 from query_processor import QueryProcessor
-from llm import LLM
+from pipeline import LLM
 from main_application import MainApplication
 
 
 def main():
+    """
+    Main function to load data, process queries and print responses.
+
+    This function creates instances of DataLoader, QueryProcessor, LLM, and MainApplication.
+    It then runs a set of example queries and prints the responses.
+    """
+
     # Load and process data
     data_loader = DataLoader(
         file_path="/content/Tasks_infotraff/NLP/Intern NLP Dataset.xlsx"

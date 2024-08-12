@@ -1,0 +1,28 @@
+Please enter your query in natural language:
+Who is my most common visitor ?
+Intent: Most Common Visitor Type
+The most common visitor type is 'Is Female' with 52 occurrences.
+
+Please enter your query in natural language:
+What time did I get most visits ?
+Intent: Most Visitors in a Minute
+The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
+
+Please enter your query in natural language:
+How many hijab visited me ?
+Intent: Visitor Count with Single Attribute
+The number of the specific visitors is 32.
+
+Please enter your query in natural language:
+How many females visited me ?
+Intent:Visitor Count with Single Attribute
+The number of the specific visitors is 52.
+
+Please enter your query in natural language:
+How many woman visited me in my peak time ?
+Intent: Most Visitors in a Minute
+The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
+
+Please enter your query in natural language:
+Break Most Visitors in a Minute
+The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
