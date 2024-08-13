@@ -19,7 +19,9 @@ the original data:
 - **Has Bag**: Indicates if the visitor is carrying a bag.
 - **Cluster ID**: A unique identifier for each visitor group.
 
-### But i have did some processing to extract the Time Column and benefit from it. The dataset used in this project includes several columns that represent visitor attributes:
+### Additional Data Processing
+
+In this project, further processing was performed on the dataset to extract valuable information from the 'Time' column. This enriched dataset now includes several columns representing various visitor attributes:
 
 - **Is Male**: Indicates if the visitor is male.
 - **Is Female**: Indicates if the visitor is female.
