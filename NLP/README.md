@@ -45,8 +45,7 @@ In this project, further processing was performed on the dataset to extract valu
 
 Plot Correlation:
 
-![Correlation Plot](Figures/corr.png)
-
+<img src="Figures/corr.png" alt="Correlation Plot" width="500"/>
 
 ## Getting Started
 
