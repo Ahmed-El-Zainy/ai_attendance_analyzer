@@ -220,7 +220,7 @@ Q.What time did I get most visits with number of visits?
 A.The time with the most visits is 15:12:00 with 5 visits.
 
 ```
-### for more queries and results you can check the rest of proejct here:
+for more queries and results you can check the rest of proejct here:
 - [Zero_Shot_Classification](Zero_Shot_Classification/README.md)
 - [PandasAI](PandasAI/README.md)
 - [Pre-trained](Pre-trained/README.md)
