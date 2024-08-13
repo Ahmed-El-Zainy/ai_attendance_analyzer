@@ -1,6 +1,7 @@
 # Deep Dive into PandasAI
 
-<img src="Figures/logo.png" alt="PandasAI"/>
+![PandasAI](/Users/ahmedmostafa/Downloads/Tasks_infotraff-1/NLP/Figures/corr.png)
+
 =====================================
 
 ## Overview
