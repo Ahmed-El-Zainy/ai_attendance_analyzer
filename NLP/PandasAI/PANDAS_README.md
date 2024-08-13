@@ -1,6 +1,6 @@
 # Deep Dive into PandasAI
 
-![PandasAI](./Figures/logo.png)
+![PandasAI](/NLP/Figures/logo.png)
 
 =====================================
 
