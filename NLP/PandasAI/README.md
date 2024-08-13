@@ -1,7 +1,6 @@
 # Deep Dive into PandasAI
 
-<img src="Figures/logo.png" alt="PandasAI
-" width="600" height="500"/>
+<img src="Figures/logo.png" alt="PandasAI"/>
 =====================================
 
 ## Overview
