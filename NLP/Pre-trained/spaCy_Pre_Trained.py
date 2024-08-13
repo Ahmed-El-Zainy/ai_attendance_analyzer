@@ -1,7 +1,7 @@
 import pandas as pd
 import spacy
 from spacy.matcher import Matcher
-from Preprocessing import main
+
 
 class QueryProcessor:
     """
@@ -24,6 +24,8 @@ class QueryProcessor:
         Parses a user query and returns the matched pattern.
     execute_query(query: str, matched_span: str) -> str:
         Executes the query based on the matched pattern and returns the result.
+    answer_query(query: str) -> str:
+        Handles the complete process of query parsing and execution.
     """
 
     def __init__(self, file_path):
@@ -43,71 +45,23 @@ class QueryProcessor:
     def load_data(self, file_path):
         """Loads the dataset from the specified file path."""
         df = pd.read_csv(file_path)
-        print(
-            "Dataframe Structure:\n", df.head()
-        )  # Display the first few rows for understanding
+        print("Dataframe Structure:\n", df.head())  # Display the first few rows for understanding
         return df
 
     def define_patterns(self):
         """Defines the query patterns for matching."""
         patterns = [
-            [
-                {"LOWER": "minute"},
-                {"LOWER": "did"},
-                {"LOWER": "i"},
-                {"LOWER": "get"},
-                {"LOWER": "the"},
-                {"LOWER": "most"},
-                {"LOWER": "visitors"},
-            ],
-            [
-                {"LOWER": "who"},
-                {"LOWER": "is"},
-                {"LOWER": "my"},
-                {"LOWER": "most"},
-                {"LOWER": "common"},
-                {"LOWER": "visitor"},
-            ],
-            [
-                {"LOWER": "how"},
-                {"LOWER": "many"},
-                {"LOWER": "females"},
-                {"LOWER": "visited"},
-                {"LOWER": "me"},
-            ],
-            [
-                {"LOWER": "how"},
-                {"LOWER": "many"},
-                {"LOWER": "females"},
-                {"LOWER": "visited"},
-                {"LOWER": "me"},
-                {"LOWER": "in"},
-                {"LOWER": "my"},
-                {"LOWER": "peak"},
-                {"LOWER": "time"},
-            ],
-            [
-                {"LOWER": "how"},
-                {"LOWER": "many"},
-                {"LOWER": "males"},
-                {"LOWER": "visited"},
-                {"LOWER": "me"},
-                {"LOWER": "in"},
-                {"LOWER": "my"},
-                {"LOWER": "peak"},
-                {"LOWER": "time"},
-            ],
-            [
-                {"LOWER": "how"},
-                {"LOWER": "many"},
-                {"LOWER": "children"},
-                {"LOWER": "visited"},
-                {"LOWER": "me"},
-                {"LOWER": "in"},
-                {"LOWER": "my"},
-                {"LOWER": "peak"},
-                {"LOWER": "time"},
-            ],
+            [{"LOWER": "minute"}, {"LOWER": "did"}, {"LOWER": "i"}, {"LOWER": "get"}, {"LOWER": "the"},
+             {"LOWER": "most"}, {"LOWER": "visitors"}],
+            [{"LOWER": "who"}, {"LOWER": "is"}, {"LOWER": "my"}, {"LOWER": "most"}, {"LOWER": "common"},
+             {"LOWER": "visitor"}],
+            [{"LOWER": "how"}, {"LOWER": "many"}, {"LOWER": "females"}, {"LOWER": "visited"}, {"LOWER": "me"}],
+            [{"LOWER": "how"}, {"LOWER": "many"}, {"LOWER": "females"}, {"LOWER": "visited"}, {"LOWER": "me"},
+             {"LOWER": "in"}, {"LOWER": "my"}, {"LOWER": "peak"}, {"LOWER": "time"}],
+            [{"LOWER": "how"}, {"LOWER": "many"}, {"LOWER": "males"}, {"LOWER": "visited"}, {"LOWER": "me"},
+             {"LOWER": "in"}, {"LOWER": "my"}, {"LOWER": "peak"}, {"LOWER": "time"}],
+            [{"LOWER": "how"}, {"LOWER": "many"}, {"LOWER": "children"}, {"LOWER": "visited"}, {"LOWER": "me"},
+             {"LOWER": "in"}, {"LOWER": "my"}, {"LOWER": "peak"}, {"LOWER": "time"}],
         ]
         pattern_names = [
             "most_visitors_minute",
@@ -131,7 +85,7 @@ class QueryProcessor:
             return matched_span
         return None
 
-    def execute_query(self, query, matched_span):
+    def execute_query(self, matched_span):
         """Executes the query based on the matched pattern and returns the result."""
         print("Matched Query:", matched_span)  # Debugging line to see matched query
 
@@ -149,32 +103,47 @@ class QueryProcessor:
 
         if matched_span == "how many females visited me in my peak time":
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
-            result = self.df[
-                (self.df["Hour"] == peak_time) & (self.df["Is Female"] == 1)
-            ].shape[0]
+            result = self.df[(self.df["Hour"] == peak_time) & (self.df["Is Female"] == 1)].shape[0]
             return f"The number of females who visited during peak time is: {result}"
 
         if matched_span == "how many males visited me in my peak time":
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
-            result = self.df[
-                (self.df["Hour"] == peak_time) & (self.df["Is Male"] == 1)
-            ].shape[0]
+            result = self.df[(self.df["Hour"] == peak_time) & (self.df["Is Male"] == 1)].shape[0]
             return f"The number of males who visited during peak time is: {result}"
 
         if matched_span == "how many children visited me in my peak time":
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
-            result = self.df[
-                (self.df["Hour"] == peak_time) & (self.df["Is Child"] == 1)
-            ].shape[0]
+            result = self.df[(self.df["Hour"] == peak_time) & (self.df["Is Child"] == 1)].shape[0]
             return f"The number of children who visited during peak time is: {result}"
 
         return "Query not recognized. Please ask another question."
 
+    def answer_query(self, query):
+        """
+        Handles the complete process of query parsing and execution.
+        Parses the query, identifies the matched pattern, and executes the query.
+
+        Parameters:
+        -----------
+        query : str
+            The user's query.
+
+        Returns:
+        --------
+        str
+            The result of the query.
+        """
+        matched_span = self.parse_query(query)
+        if matched_span:
+            return self.execute_query(matched_span)
+        else:
+            return "Query not recognized. Please ask another question."
+
 
 def main():
-    # Initialize QueryProcessor with the dataset
-    df = main()
-    processor = QueryProcessor(df)
+    # Initialize QueryProcessor with the dataset file path
+    file_path = "/Users/ahmedmostafa/Downloads/Tasks_infotraff-1/NLP/Data/Data.csv"
+    processor = QueryProcessor(file_path)
 
     # Examples of queries
     queries = [
@@ -188,11 +157,7 @@ def main():
 
     for query in queries:
         print(f"Processing query: '{query}'")  # Debugging line to see current query
-        matched_span = processor.parse_query(query)
-        if matched_span:
-            answer = processor.execute_query(query, matched_span)
-        else:
-            answer = "No matching pattern found for the query."
+        answer = processor.answer_query(query)
         print(answer)
 
 

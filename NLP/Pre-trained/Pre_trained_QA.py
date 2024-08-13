@@ -1,7 +1,5 @@
 import pandas as pd
 from transformers import pipeline
-from Preprocessing import main
-
 
 class QueryProcessorWithLLM:
     """
@@ -31,47 +29,55 @@ class QueryProcessorWithLLM:
         file_path : str
             The file path to the dataset.
         """
+
+        model_name = "distilbert-base-cased-distilled-squad"
         self.df = self.load_data(file_path)
-        self.qa_pipeline = pipeline("question-answering")
+        self.qa_pipeline = pipeline("question-answering", model=model_name)
 
     def load_data(self, file_path):
         """Loads the dataset from the specified file path."""
-        df = pd.read_csv(file_path)
-        print(
-            "Dataframe Structure:\n", df.head()
-        )  # Display the first few rows for understanding
-        return df
+        try:
+            df = pd.read_csv(file_path)
+            print("Dataframe Structure:\n", df.head())  # Display the first few rows
+            return df
+        except FileNotFoundError:
+            print(f"Error: The file at {file_path} was not found.")
+            return None
 
     def answer_query(self, query):
         """Processes a user query and returns the result."""
+        # Check if data is loaded
+        if self.df is None:
+            return "No data loaded."
+
         # Check for specific questions and handle them
-        if "most visitors" in query:
+        if "minute" in query and "most visitors" in query:
             result = self.df.groupby(["Minute"]).size().idxmax()
             return f"The minute with the most visitors is: {result}"
 
-        if "most common visitor" in query:
+        if "common visitor" in query:
             result = self.df["Total_Visitors"].mode()[0]
             return f"The most common visitor is: {result}"
 
-        if "how many females visited me" in query and "peak time" not in query:
+        if "how many females visited" in query and "peak time" not in query:
             result = self.df["Is Female"].sum()
             return f"The number of females who visited is: {result}"
 
-        if "how many females visited me in my peak time" in query:
+        if "females visited" in query and "peak time" in query:
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
             result = self.df[
                 (self.df["Hour"] == peak_time) & (self.df["Is Female"] == 1)
             ].shape[0]
             return f"The number of females who visited during peak time is: {result}"
 
-        if "how many males visited me in my peak time" in query:
+        if "males visited" in query and "peak time" in query:
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
             result = self.df[
                 (self.df["Hour"] == peak_time) & (self.df["Is Male"] == 1)
             ].shape[0]
             return f"The number of males who visited during peak time is: {result}"
 
-        if "how many children visited me in my peak time" in query:
+        if "children visited" in query and "peak time" in query:
             peak_time = self.df.groupby("Hour")["Total_Visitors"].sum().idxmax()
             result = self.df[
                 (self.df["Hour"] == peak_time) & (self.df["Is Child"] == 1)
@@ -80,11 +86,10 @@ class QueryProcessorWithLLM:
 
         return "Query not recognized. Please ask another question."
 
-
 def main():
-    # Initialize QueryProcessorWithLLM with the dataset
-    df = main()
-    processor = QueryProcessorWithLLM(df)
+    # Initialize QueryProcessorWithLLM with the dataset file path
+    file_path = "/Users/ahmedmostafa/Downloads/Tasks_infotraff-1/NLP/Data/Data.csv"
+    processor = QueryProcessorWithLLM(file_path)
 
     # Examples of queries
     queries = [
@@ -100,7 +105,6 @@ def main():
         print(f"Processing query: '{query}'")  # Debugging line to see current query
         answer = processor.answer_query(query)
         print(answer)
-
 
 if __name__ == "__main__":
     main()
