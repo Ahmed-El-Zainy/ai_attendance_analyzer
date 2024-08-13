@@ -1,5 +1,6 @@
 import pandas as pd
 from transformers import pipeline
+from Preprocessing import main
 
 
 class QueryProcessorWithLLM:
@@ -82,9 +83,8 @@ class QueryProcessorWithLLM:
 
 def main():
     # Initialize QueryProcessorWithLLM with the dataset
-    processor = QueryProcessorWithLLM(
-        "/Users/ahmedmostafa/Downloads/Tasks_infotraff-1/NLP/Data/Data.csv"
-    )
+    df = main()
+    processor = QueryProcessorWithLLM(df)
 
     # Examples of queries
     queries = [

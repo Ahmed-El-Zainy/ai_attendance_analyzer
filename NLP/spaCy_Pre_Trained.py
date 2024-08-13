@@ -1,7 +1,7 @@
 import pandas as pd
 import spacy
 from spacy.matcher import Matcher
-
+from Preprocessing import main
 
 class QueryProcessor:
     """
@@ -173,7 +173,8 @@ class QueryProcessor:
 
 def main():
     # Initialize QueryProcessor with the dataset
-    processor = QueryProcessor("Data.csv")
+    df = main()
+    processor = QueryProcessor(df)
 
     # Examples of queries
     queries = [
