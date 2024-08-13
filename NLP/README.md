@@ -137,7 +137,13 @@ Before you start, ensure you have Python installed on your machine. You’ll als
     ```bash
     pip install -r requirements.txt
     ```
-
+### Methods
+- **Zero-Shot Classification**:
+    - This method uses a pre-trained model to classify queries into predefined categories.
+    - It provides a structured approach to handling different types of questions.
+- **Pre-Trained Models**:
+  - This method uses pre-trained models to answer questions based on the available data. with huggingface transformers library
+  - Uses Pre-trained model from spacy library. and applying NLP methods of text processing like stemming, tokenization, and lemmatization.
 ### Running the Application
 You have many methods to run the application, you can run it from the main.py file or from the main_app.py file or from the notebook file.
 
@@ -212,22 +218,12 @@ A.The number of female visitors at the peak time (15:12:00) is 5
 Q.What time did I get most visits with number of visits?
 A.The time with the most visits is 15:12:00 with 5 visits.
 ```
+
+
 Upon starting, the application loads the dataset and provides an overview of its structure. This step is crucial to understanding what kind of queries can be answered based on the available data.
-
 ### Extending the System
-
 The application is designed to be extensible. You can add more patterns to handle different types of queries or improve the existing logic to provide more detailed answers.
 
-## Example Queries
-
-Here are some of the questions the system can answer:
-
-- "Who is my most common visitor?"
-- "What time did I get most visits?"
-- "How many females visited me?"
-- "How many females visited me in my peak time?"
-- "How many males visited me in my peak time?"
-- "How many children visited me in my peak time?"
 
 ## Contributing
 
