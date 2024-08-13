@@ -20,3 +20,5 @@ fasttext
 xgboost
 lightgbm
 catboost
+pandasai
+

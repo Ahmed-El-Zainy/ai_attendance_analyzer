@@ -19,8 +19,7 @@ the original data:
 - **Has Bag**: Indicates if the visitor is carrying a bag.
 - **Cluster ID**: A unique identifier for each visitor group.
 
-- But i have do some processing to extract the Time Column and benefit from it .
-The dataset used in this project includes several columns that represent visitor attributes:
+### But i have did some processing to extract the Time Column and benefit from it. The dataset used in this project includes several columns that represent visitor attributes:
 
 - **Is Male**: Indicates if the visitor is male.
 - **Is Female**: Indicates if the visitor is female.
@@ -39,6 +38,12 @@ The dataset used in this project includes several columns that represent visitor
 **Data Exploration**:
 
 - The application begins by exploring the dataset, displaying its structure to understand the columns and their contents.
+
+- It calculates summary statistics for each column, providing insights into the distribution of visitor attributes.
+
+Plot Correlation:
+
+![Correlation Plot](NLP/Figures/corr.png)
 
 
 ## Getting Started
