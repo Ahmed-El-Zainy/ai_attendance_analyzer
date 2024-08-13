@@ -45,7 +45,7 @@ In this project, further processing was performed on the dataset to extract valu
 
 Plot Correlation:
 
-<img src="Figures/corr.png" alt="Correlation Plot" width="800"/>
+<img src="Figures/corr.png" alt="Correlation Plot" width="600" height="500"/>
 
 ## Correlation Matrix Analysis
 
