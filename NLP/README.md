@@ -123,13 +123,13 @@ Before you start, ensure you have Python installed on your machine. You’ll als
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/your-repo/visitor-data-query-processing.git
+    git clone https://github.com/A7medM0sta/Tasks_infotraff.git
     ```
 
 2. **Navigate to the project directory**:
 
     ```bash
-    cd visitor-data-query-processing
+    cd NLP
     ```
 
 3. **Install the dependencies**:
@@ -139,13 +139,35 @@ Before you start, ensure you have Python installed on your machine. You’ll als
     ```
 
 ### Running the Application
+You have many methods to run the application, you can run it from the main.py file or from the main_app.py file or from the notebook file.
 
-To run the application and see it in action:
+#### 1.Zero_Shot_Classification:
+you can run the main.py file or the main_app.py file.
 
 ```bash
-python main.py
+   cd Zero_Shot_Classification 
+```
+- **From the main.py file**:
+    ```bash
+    python main.py
+    ```
+#### 2.Pre-Trained Models:
+
+
+```bash
+   cd Pre-trained
+```
+- Method 1: spacy library
+
+```bash
+    python spaCy_Pre_Trained.py
 ```
 
+- Method 2: transformers library
+
+```bash
+    python Pre_trained_QA.py.py
+```
 This will load the dataset, process some example queries, and display the results.
 
 ## How It Works
