@@ -2,7 +2,8 @@
 
 ![PandasAI](/NLP/Figures/logo.png)
 
-=====================================
+==========================================================================
+
 
 ## Overview
 
@@ -28,8 +29,18 @@ For example, you might want the LLM to be aware that your company’s fiscal yea
 To train PandasAI with instructions, you can use the train method on the Agent, as it follows:
 
 The training uses by default the BambooVectorStore to store the training data, and it’s accessible with the API key.
-
 Examples:
+```python
+chat_agent.train("Most Common Visitor gender, with number of occurrence")
+response = chat_agent.chat("Who is my most common gender ?")
+print(response)
+
+```
+output:
+```
+The most common gender is Is Female.
+```
+
 
 - Example 1
 ```python
@@ -62,5 +73,10 @@ print(response)
 ```
 output:
 ```
-The hour with the highest number of visits last week was 14:00.``` 
+The hour with the highest number of visits last week was 14:00.
+```
+
+### Q/A Training
+
+
 
