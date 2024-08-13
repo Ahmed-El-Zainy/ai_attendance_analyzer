@@ -45,7 +45,34 @@ In this project, further processing was performed on the dataset to extract valu
 
 Plot Correlation:
 
-<img src="Figures/corr.png" alt="Correlation Plot" width="500"/>
+<img src="Figures/corr.png" alt="Correlation Plot" width="800"/>
+
+## Correlation Matrix Analysis
+
+### Overview
+
+This section provides insights derived from the correlation matrix of the dataset. Correlation values range between -1 and 1, indicating the strength and direction of the relationship between two variables.
+
+### Key Insights
+
+1. **Gender-Based Observations**:
+   - A strong inverse relationship exists between `Is Male` and `Is Female`, as expected in a binary gender classification.
+   - Female visitors have a moderate positive correlation with total visitor count, indicating a higher female presence in the dataset.
+
+2. **Visitor Attributes**:
+   - Visitors wearing a hijab have a strong positive correlation with total visitors, suggesting that a significant portion of the visitors are hijab-wearing individuals.
+   - A moderate inverse relationship exists between female visitors and child visitors.
+
+3. **Bag Presence**:
+   - There is a moderate positive correlation between visitors carrying bags and the total number of visitors.
+
+4. **Temporal and Cluster Analysis**:
+   - The hour and minute values show a strong inverse relationship, which may reflect specific trends in visitor traffic over time.
+   - Cluster IDs are closely tied to specific hours, indicating that visitor distribution varies significantly across different time periods.
+
+### Conclusion
+
+These correlations provide a foundational understanding of the relationships between various attributes in the dataset, aiding in further analysis and decision-making.
 
 ## Getting Started
 
