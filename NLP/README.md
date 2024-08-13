@@ -45,7 +45,7 @@ In this project, further processing was performed on the dataset to extract valu
 
 Plot Correlation:
 
-![Correlation Plot](NLP/Figures/corr.png)
+![Correlation Plot](/Users/ahmedmostafa/Downloads/Tasks_infotraff-1/NLP/Figures/corr.png)
 
 
 ## Getting Started
