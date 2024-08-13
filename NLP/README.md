@@ -2,7 +2,45 @@
 
 This project provides a system for exploring and querying visitor data, answering questions like "Who is my most common visitor?" and "When did I get the most visits?" It combines data analysis and natural language processing to provide insights into visitor patterns.
 
+## Architecture
+
 ## Overview
+```
+NLP/
+├── cache/
+│   ├── cache_db_0.11.db
+│   ├── cache_db_0.11.db.wal
+├── Data/
+│   ├── Data.csv
+│   ├── intents.json
+│   ├── Intern NLP Dataset.xlsx
+├── Drafts/
+│   ├── Zero_Shot_Classification_method.ipynb
+├── exports/
+│   ├── charts/
+├── Figures/
+│   ├── corr.png
+│   ├── logo.png
+├── PandasAI/
+│   ├── Fine_Tune_Agent_Pandas_AI.ipynb
+│   ├── Pandas_AI_Chat.ipynb
+│   ├── README.md
+│   ├── pandasai.log
+├── Pre-trained/
+│   ├── Preprocessing.py
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── Role_Based_Model.py
+├── Zero_Shot_Classification/
+│   ├── main_app.py
+│   ├── main.py
+│   ├── pipeline.py
+│   ├── QA.txt
+│   ├── query_processing.py
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── utils.py
+```
 
 The application processes a dataset containing visitor information and responds to various queries using Python. It leverages libraries like pandas for data manipulation and transformers for natural language processing (NLP).
 
