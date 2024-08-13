@@ -166,25 +166,53 @@ you can run the main.py file or the main_app.py file.
 - Method 2: transformers library
 
 ```bash
-    python Pre_trained_QA.py.py
+    python Pre_trained_QA.py
 ```
 This will load the dataset, process some example queries, and display the results.
 
-## How It Works
 
-### Data Exploration
+### Required Results
+```
+Q.Who is my most common visitor ?
+A.The most common visitor type is 'Is Female' with 52 occurrences.
 
+Q.What time did I get most visits ?
+A.The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
+
+Q.How many hijab visited me ?
+A.The number of the specific visitors is 32.
+
+Q.How many females visited me ?
+A.The number of the specific visitors is 52.
+
+Q.How many woman visited me in my peak time ?
+A.The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
+
+Q.What time did I get most visits with number of visits?
+A.The minute with the most visitors is 2024-07-17 15:12:00 with 5 visitors.
+```
+### MY Results
+
+```
+Q.Who is my most common visitor ?
+A.The most common visitor is Female..
+
+Q.What time did I get most visits ?
+A.'The minute with the most visitors is 15:12.'
+
+Q.How many hijab visited me ?
+A.32.
+
+Q.How many females visited me ?
+A.52.
+
+Q.How many woman visited me in my peak time ?
+A.The number of female visitors at the peak time (15:12:00) is 5
+
+Q.What time did I get most visits with number of visits?
+A.The time with the most visits is 15:12:00 with 5 visits.
+```
 Upon starting, the application loads the dataset and provides an overview of its structure. This step is crucial to understanding what kind of queries can be answered based on the available data.
-
-### Query Processing
-
-The application uses a combination of pandas for data manipulation and transformers for NLP to answer queries. Here’s a breakdown of how it handles different types of questions:
-
-- **"Which minute did I get the most visitors?"**
-  - The application groups the data by minute and identifies the minute with the highest visitor count.
-
-- **"Who is my most common visitor?"**
-  - The system analyzes the visitor data to determine the most frequently occurring visitor type.
 
 ### Extending the System
 
