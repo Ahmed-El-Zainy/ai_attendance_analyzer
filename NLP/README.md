@@ -4,7 +4,6 @@ This project provides a system for exploring and querying visitor data, answerin
 
 ## Architecture
 
-## Overview
 ```
 NLP/
 ├── cache/
@@ -41,6 +40,8 @@ NLP/
 │   ├── requirements.txt
 │   ├── utils.py
 ```
+
+## Overview
 
 The application processes a dataset containing visitor information and responds to various queries using Python. It leverages libraries like pandas for data manipulation and transformers for natural language processing (NLP).
 
