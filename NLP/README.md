@@ -148,7 +148,7 @@ Before you start, ensure you have Python installed on your machine. You’ll als
 ### Running the Application
 You have many methods to run the application, you can run it from the main.py file or from the main_app.py file or from the notebook file.
 
-#### 1.Zero_Shot_Classification:
+#### 1.Zero Shot Classification:
 you can run the main.py file or the main_app.py file.
 
 ```bash
