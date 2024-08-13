@@ -92,6 +92,24 @@ Model Name: en_core_web_sm
 
 ### Results
 ```
-
+Processing query: 'Which minute did I get the most visitors?'
+Matched Query: most_visitors_minute
+The minute with the most visitors is: 12
+Processing query: 'Who is my most common visitor?'
+Matched Query: most_common_visitor
+The most common visitor is: 2
+Processing query: 'How many females visited me?'
+Matched Query: females_visited
+The number of females who visited is: 52
+Processing query: 'How many females visited me in my peak time?'
+Matched Query: females_visited
+The number of females who visited is: 52
+Processing query: 'How many males visited me in my peak time?'
+Matched Query: males_peak_time
+The number of males who visited during peak time is: 3
+Processing query: 'How many children visited me in my peak time?'
+Matched Query: children_peak_time
+The number of children who visited during peak time is: 1
+```
 
 
