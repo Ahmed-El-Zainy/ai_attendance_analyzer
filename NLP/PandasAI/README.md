@@ -74,7 +74,6 @@ There are two kinds of training:
 - q/a training
 
 ### Instructions Training
-Instructions training
 
 Instructions training is used to teach PandasAI how you expect it to respond to certain queries. You can provide generic instructions about how you expect the model to approach certain types of queries, and PandasAI will use these instructions to generate responses to similar queries.
 
@@ -83,6 +82,28 @@ For example, you might want the LLM to be aware that your company’s fiscal yea
 To train PandasAI with instructions, you can use the train method on the Agent, as it follows:
 
 The training uses by default the BambooVectorStore to store the training data, and it’s accessible with the API key.
+
+#### Overview
+```
+ A class to handle chat operations using PandasAI.
+
+    ...
+
+    Attributes
+    ----------
+    df : DataFrame
+        a pandas DataFrame containing the data to be used by the agent
+    agent : Agent
+        a PandasAI Agent used to train and chat
+
+    Methods
+    -------
+    train(docs):
+        Trains the agent using the provided documents.
+    chat(query):
+        Uses the agent to generate a response to the provided query.
+```
+
 Examples:
 ```python
 chat_agent.train("Most Common Visitor gender, with number of occurrence")
@@ -132,6 +153,29 @@ The hour with the highest number of visits last week was 14:00.
 
 ### Q/A Training
 Q/A training is used to teach PandasAI the desired process to answer specific questions, enhancing the model’s performance and determinism. One of the biggest challenges with LLMs is that they are not deterministic, meaning that the same question can produce different answers at different times. Q/A training can help to mitigate this issue.
+
+#### Overview
+
+```
+A class to handle Q/A operations using PandasAI.
+
+    ...
+
+    Attributes
+    ----------
+    df : DataFrame
+        a pandas DataFrame containing the data to be used by the agent
+    agent : Agent
+        a PandasAI Agent used to train and chat
+
+    Methods
+    -------
+    train(query, response_code):
+        Trains the agent using the provided query and response code.
+    chat(query):
+        Uses the agent to generate a response to the provided query.
+```
+
 Examples:
 - Example 1
 ```python
